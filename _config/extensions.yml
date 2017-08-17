@@ -1,0 +1,11 @@
+Axllent\Weblog\Model\Blog:
+  extensions:
+    - Axllent\Weblog\Extensions\BlogCategoriesExt
+
+Axllent\Weblog\Model\BlogPost:
+  extensions:
+    - Axllent\Weblog\Extensions\BlogPostCategoriesExt
+
+Axllent\Weblog\Model\BlogController:
+  extensions:
+    - Axllent\Weblog\Extensions\BlogCategoriesControllerExt
