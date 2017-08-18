@@ -59,7 +59,7 @@ class BlogCategory extends DataObject
         return $this->Blog()->Link() . 'category/' . $this->URLSegment . '/';
     }
 
-    /* Return only valid blog posts with past PublishDate */
+    /* Return only valid blog posts > PublishDate */
     public function getVisibleBlogPosts()
     {
         return $this->Blogposts()
@@ -109,6 +109,18 @@ class BlogCategory extends DataObject
             return true;
         };
         return parent::canView($member, $context);
+    }
+
+    public function canDelete($member = null, $context = [])
+    {
+        $extended = $this->extendedCan('canDelete', $member);
+        if ($extended !== null) {
+            return $extended;
+        }
+        if (Permission::check('CMS_ACCESS_Weblog', 'any', $member)) {
+            return true;
+        };
+        return parent::canDelete($member, $context);
     }
 
 }
