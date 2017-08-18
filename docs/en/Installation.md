@@ -3,7 +3,7 @@
 The weblog categories module can be installed via composer:
 
 ```
-composer require axllent/silverstripe-weblog-categories
+require axllent/silverstripe-weblog-categories:dev-master@dev --prefer-dist
 ```
 
 Once installed, do a `/dev/build` to add the required fields to the database.
