@@ -15,6 +15,7 @@
 		"issues": "https://github.com/axllent/silverstripe-weblog-categories/issues"
 	},
     "require": {
+        "silverstripe/cms": "^4.0",
         "axllent/silverstripe-weblog": "dev-master@dev",
         "silverstripe/tagfield": "dev-master@dev"
 	},
