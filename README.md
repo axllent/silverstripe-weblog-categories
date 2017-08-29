@@ -4,7 +4,7 @@ A module extension to add categories to the [SilverStripe Weblog module](https:/
 
 It provides the necessary controller extensions for Weblog to browse by category.
 
-**This module is still in beta and relies on development versions of SilverStripe 4, Weblog & tagfield.**
+**This module currently relies on development versions of SilverStripe 4 & tagfield.**
 
 
 ## Features
@@ -21,6 +21,6 @@ It provides the necessary controller extensions for Weblog to browse by category
 
 ```
 silverstripe/cms: ^4.0
-axllent/silverstripe-weblog: dev-master@dev
+axllent/silverstripe-weblog
 silverstripe/tagfield: dev-master@dev
 ```

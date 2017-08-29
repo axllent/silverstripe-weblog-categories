@@ -16,7 +16,7 @@
 	},
     "require": {
         "silverstripe/cms": "^4.0",
-        "axllent/silverstripe-weblog": "dev-master@dev",
+        "axllent/silverstripe-weblog": "*",
         "silverstripe/tagfield": "dev-master@dev"
 	},
     "autoload": {
