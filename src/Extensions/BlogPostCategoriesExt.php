@@ -27,9 +27,10 @@ class BlogPostCategoriesExt extends SiteTreeExtension
                 'Post Categories',
                 $this->owner->Parent()->Categories(),
                 $this->owner->Categories()
-            )->setShouldLazyLoad(true), 'Content'
+            )->setShouldLazyLoad(true)
+                ->setLazyLoadItemLimit(20),
+            'Content'
         );
-
 
         return $fields;
     }
