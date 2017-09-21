@@ -36,6 +36,14 @@ class BlogCategory extends DataObject
         'BlogPosts' => BlogPost::class,
     );
 
+    private static $summary_fields = [
+        'Title', 'BlogPosts.Count'
+    ];
+
+    private static $field_labels = [
+        'BlogPosts.Count' => 'Blog Posts'
+    ];
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
