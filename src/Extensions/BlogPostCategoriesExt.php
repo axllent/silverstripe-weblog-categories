@@ -36,6 +36,16 @@ class BlogPostCategoriesExt extends SiteTreeExtension
     }
 
     /**
+     * Return blog categories - templating
+     * @param Null
+     * @return DataList
+     */
+    public function getCategories()
+    {
+        return $this->owner->Categories();
+    }
+
+    /**
      * Force new TagField categories to inherit ParentID
      */
     public function onAfterWrite()
