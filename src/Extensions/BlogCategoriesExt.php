@@ -7,10 +7,8 @@ use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Forms\GridField\Gridfield;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 
-
 class BlogCategoriesExt extends SiteTreeExtension
 {
-
     private static $has_many = [
         'Categories' => BlogCategory::class
     ];
@@ -22,10 +20,10 @@ class BlogCategoriesExt extends SiteTreeExtension
     public function updateCMSFields(\SilverStripe\Forms\FieldList $fields)
     {
         $gridFieldConfig = GridFieldConfig_RecordEditor::create();
-        $fields->addFieldToTab('Root.BlogCategories',
+        $fields->addFieldToTab(
+            'Root.BlogCategories',
             new GridField('Categories', 'Blog Categories', $this->owner->Categories(), $gridFieldConfig)
         );
         return $fields;
     }
-
 }

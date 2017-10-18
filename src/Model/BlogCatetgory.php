@@ -12,17 +12,12 @@ use SilverStripe\Security\Permission;
 
 class BlogCategory extends DataObject
 {
-
     private static $table_name = 'BlogCategory';
 
     private static $default_sort = [
         'Title'
     ];
 
-    /**
-     * Database fields
-     * @var array
-     */
     private static $db = [
         'Title' => 'Varchar(100)',
         'URLSegment' => 'Varchar(100)'
@@ -76,7 +71,7 @@ class BlogCategory extends DataObject
 
     public function validate()
     {
-    	$valid = parent::validate();
+        $valid = parent::validate();
         $this->Title = trim($this->Title);
 
         $filter = new URLSegmentFilter;
@@ -92,7 +87,7 @@ class BlogCategory extends DataObject
         } elseif ($exists) {
             $valid->addError('A category named ' . $this->Title . ' already exists');
         }
-    	return $valid;
+        return $valid;
     }
 
     public function canEdit($member = null, $context = [])
@@ -130,5 +125,4 @@ class BlogCategory extends DataObject
         };
         return parent::canDelete($member, $context);
     }
-
 }
