@@ -2,6 +2,12 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.0.0]
+
+- Update requirements
+- First release
+
+
 ## [1.0.0-beta3]
 
 - Switch to silverstripe-vendormodule
