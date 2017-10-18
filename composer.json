@@ -17,7 +17,7 @@
     "require": {
         "silverstripe/cms": "^4.0",
         "axllent/silverstripe-weblog": "*",
-        "silverstripe/tagfield": "dev-master@dev"
+        "silverstripe/tagfield": "^2.0"
 	},
     "autoload": {
         "psr-4": {
