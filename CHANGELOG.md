@@ -2,6 +2,12 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.1.0]
+
+- Switch to more reliable `ListboxField` instead of `TagField`
+- Tidy up inline commenting
+
+
 ## [1.0.0]
 
 - Update requirements
