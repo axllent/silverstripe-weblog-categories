@@ -1,34 +1,40 @@
 <?php
-
 namespace Axllent\Weblog\Extensions;
 
 use Axllent\Weblog\Model\BlogCategory;
 use SilverStripe\CMS\Model\SiteTreeExtension;
-use SilverStripe\Forms\GridField\Gridfield;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\ListboxField;
 use SilverStripe\TagField\TagField;
 
 class BlogPostCategoriesExt extends SiteTreeExtension
 {
-    private static $many_many = array(
-        'Categories' => BlogCategory::class
-    );
+    /**
+     * Many many relationship
+     *
+     * @var array
+     */
+    private static $many_many = [
+        'Categories' => BlogCategory::class,
+    ];
 
     /**
      * Update Fields
+     *
+     * @param FieldList $fields Form fields
+     *
      * @return FieldList
      */
-    public function updateCMSFields(\SilverStripe\Forms\FieldList $fields)
+    public function updateCMSFields(FieldList $fields)
     {
         $fields->addFieldToTab(
             'Root.Main',
-            TagField::create(
+            ListboxField::create(
                 'Categories',
                 'Post Categories',
                 $this->owner->Parent()->Categories(),
                 $this->owner->Categories()
-            )->setShouldLazyLoad(true)
-                ->setLazyLoadItemLimit(20),
+            ),
             'Content'
         );
 
@@ -37,7 +43,7 @@ class BlogPostCategoriesExt extends SiteTreeExtension
 
     /**
      * Return blog categories - templating
-     * @param Null
+     *
      * @return DataList
      */
     public function getCategories()
@@ -47,6 +53,8 @@ class BlogPostCategoriesExt extends SiteTreeExtension
 
     /**
      * Force new TagField categories to inherit ParentID
+     *
+     * @return void
      */
     public function onAfterWrite()
     {
