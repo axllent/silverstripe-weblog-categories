@@ -1,23 +1,40 @@
 <?php
-
 namespace Axllent\Weblog\Extensions;
 
 use SilverStripe\ORM\DataExtension;
 
 class BlogCategoriesControllerExt extends DataExtension
 {
+    /**
+     * Allowed actions
+     *
+     * @var array
+     */
     private static $allowed_actions = [
-        'displayCategory'
+        'displayCategory',
     ];
 
+    /**
+     * URL handlers
+     *
+     * @var array
+     */
     private static $url_handlers = [
         'category//$Category!' => 'displayCategory',
     ];
 
+    /**
+     * Display category
+     *
+     * @param HTTPRequest $request Request
+     *
+     * @return string
+     */
     public function displayCategory($request)
     {
         $urlsegment = $request->param('Category');
-        $category = $this->owner->Categories()->filter('URLSegment', $urlsegment)
+        $category   = $this->owner->Categories()
+            ->filter('URLSegment', $urlsegment)
             ->first();
 
         if (!$category) {
@@ -32,14 +49,19 @@ class BlogCategoriesControllerExt extends DataExtension
 
         $orig_title = $this->owner->dataRecord->Title;
 
-        $this->owner->dataRecord->Title = 'Viewing category "' . $category->Title . '" | ' . $orig_title;
+        $this->owner->dataRecord->Title = 'Viewing category "' .
+        $category->Title . '" | ' . $orig_title;
 
         $this->owner->blogPosts = $posts;
 
         return $this->owner->render();
     }
 
-    /* For use in templating */
+    /**
+     * Return current category (templating)
+     *
+     * @return mixed
+     */
     public function getCurrentCategory()
     {
         $category = $this->owner->request->param('Category');
@@ -48,6 +70,7 @@ class BlogCategoriesControllerExt extends DataExtension
                 ->filter('URLSegment', $category)
                 ->first();
         }
+
         return null;
     }
 }
