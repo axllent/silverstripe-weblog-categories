@@ -1,24 +1,27 @@
 {
-	"name": "axllent/silverstripe-weblog-categories",
-	"description": "Categories for the SilverStripe Weblog module",
-	"type": "silverstripe-vendormodule",
-	"homepage": "https://github.com/axllent/silverstripe-weblog-categories",
-	"keywords": ["silverstripe", "blog", "news"],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Ralph Slooten",
-			"homepage": "http://www.axllent.org/"
-		}
-	],
-	"support": {
-		"issues": "https://github.com/axllent/silverstripe-weblog-categories/issues"
-	},
+    "name": "axllent/silverstripe-weblog-categories",
+    "description": "Categories for the SilverStripe Weblog module",
+    "type": "silverstripe-vendormodule",
+    "homepage": "https://github.com/axllent/silverstripe-weblog-categories",
+    "keywords": [
+        "silverstripe",
+        "blog",
+        "news"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ralph Slooten",
+            "homepage": "http://www.axllent.org/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/axllent/silverstripe-weblog-categories/issues"
+    },
     "require": {
         "silverstripe/cms": "^4.0",
-        "axllent/silverstripe-weblog": "*",
-        "silverstripe/tagfield": "^2.0"
-	},
+        "axllent/silverstripe-weblog": "^1.2"
+    },
     "autoload": {
         "psr-4": {
             "Axllent\\Weblog\\": "src/"

@@ -20,5 +20,4 @@ It provides the necessary controller extensions for Weblog to browse by category
 ```
 silverstripe/cms: ^4.0
 axllent/silverstripe-weblog
-silverstripe/tagfield
 ```
