@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.1.1]
+
+- Fix blog category link when URL parameters are used.
+
+
 ## [1.1.0]
 
 - Switch to more reliable `ListboxField` instead of `TagField`
