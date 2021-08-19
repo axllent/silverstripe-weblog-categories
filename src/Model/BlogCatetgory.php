@@ -89,7 +89,12 @@ class BlogCategory extends DataObject
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName('URLSegment');
+        $fields->removeByName(
+            [
+                'BlogID',
+                'URLSegment',
+            ]
+        );
 
         if ($this->exists()) {
             /* Remove Add New button */
