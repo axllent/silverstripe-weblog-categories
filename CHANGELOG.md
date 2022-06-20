@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.1.3]
+
+- Rename BlogCategory.php file
+
+
 ## [1.1.2]
 
 - Remove non-editable BlogID dropdown
