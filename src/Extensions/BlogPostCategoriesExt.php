@@ -5,7 +5,6 @@ use Axllent\Weblog\Model\BlogCategory;
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ListboxField;
-use SilverStripe\TagField\TagField;
 
 class BlogPostCategoriesExt extends SiteTreeExtension
 {
@@ -27,16 +26,19 @@ class BlogPostCategoriesExt extends SiteTreeExtension
      */
     public function updateCMSFields(FieldList $fields)
     {
-        $fields->addFieldToTab(
-            'Root.Main',
-            ListboxField::create(
-                'Categories',
-                'Post Categories',
-                $this->owner->Parent()->Categories(),
-                $this->owner->Categories()
-            ),
-            'Content'
-        );
+        $p = $this->owner->Parent();
+        if ($p->exists()) {
+            $fields->addFieldToTab(
+                'Root.Main',
+                ListboxField::create(
+                    'Categories',
+                    'Post Categories',
+                    $p->Categories(),
+                    $this->owner->Categories()
+                ),
+                'Content'
+            );
+        }
 
         return $fields;
     }
@@ -49,18 +51,5 @@ class BlogPostCategoriesExt extends SiteTreeExtension
     public function getCategories()
     {
         return $this->owner->Categories();
-    }
-
-    /**
-     * Force new TagField categories to inherit ParentID
-     *
-     * @return void
-     */
-    public function onAfterWrite()
-    {
-        foreach ($this->owner->Categories() as $category) {
-            $category->BlogID = $this->owner->ParentID;
-            $category->write();
-        }
     }
 }
