@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.1.5]
+
+- fix: `$default_sort` should be a string
+
+
 ## [1.1.4]
 
 - Handle archived pages correctly
