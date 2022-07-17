@@ -20,13 +20,12 @@ class BlogCategory extends DataObject
     private static $table_name = 'BlogCategory';
 
     /**
-     * Default sort
+     * The default sort.
      *
-     * @var array
+     * @var    string
+     * @config
      */
-    private static $default_sort = [
-        'Title',
-    ];
+    private static $default_sort = '"Title" ASC';
 
     /**
      * Database field definitions.
