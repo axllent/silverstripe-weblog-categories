@@ -18,6 +18,6 @@ It provides the necessary controller extensions for Weblog to browse by category
 ## Requirements
 
 ```
-silverstripe/cms: ^4.0
+silverstripe/cms: ^4.0 || ^5.0
 axllent/silverstripe-weblog
 ```
