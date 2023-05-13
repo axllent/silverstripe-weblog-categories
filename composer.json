@@ -1,6 +1,6 @@
 {
     "name": "axllent/silverstripe-weblog-categories",
-    "description": "Categories for the SilverStripe Weblog module",
+    "description": "Categories for the Silverstripe Weblog module",
     "type": "silverstripe-vendormodule",
     "homepage": "https://github.com/axllent/silverstripe-weblog-categories",
     "keywords": [
@@ -19,7 +19,6 @@
         "issues": "https://github.com/axllent/silverstripe-weblog-categories/issues"
     },
     "require": {
-        "silverstripe/cms": "^4.0",
         "axllent/silverstripe-weblog": "^1.2"
     },
     "autoload": {
