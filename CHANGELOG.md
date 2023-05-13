@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.1.6]
+
+- Allow package to be installed in Silverstripe 5 projects
+
+
 ## [1.1.5]
 
 - fix: `$default_sort` should be a string
