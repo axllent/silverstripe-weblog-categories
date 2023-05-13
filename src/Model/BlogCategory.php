@@ -1,8 +1,7 @@
 <?php
+
 namespace Axllent\Weblog\Model;
 
-use Axllent\Weblog\Model\Blog;
-use Axllent\Weblog\Model\BlogPost;
 use SilverStripe\Core\Convert;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\ORM\DataObject;
@@ -22,7 +21,8 @@ class BlogCategory extends DataObject
     /**
      * The default sort.
      *
-     * @var    string
+     * @var string
+     *
      * @config
      */
     private static $default_sort = '"Title" ASC';
@@ -30,7 +30,8 @@ class BlogCategory extends DataObject
     /**
      * Database field definitions.
      *
-     * @var    array
+     * @var array
+     *
      * @config
      */
     private static $db = [
@@ -39,9 +40,10 @@ class BlogCategory extends DataObject
     ];
 
     /**
-     * One-to-zero relationship defintions.
+     * One-to-zero relationship definitions.
      *
-     * @var    array
+     * @var array
+     *
      * @config
      */
     private static $has_one = [
@@ -51,7 +53,8 @@ class BlogCategory extends DataObject
     /**
      * Defines inverse side of a many-many relationship.
      *
-     * @var    array
+     * @var array
+     *
      * @config
      */
     private static $belongs_many_many = [
@@ -62,7 +65,8 @@ class BlogCategory extends DataObject
      * Provides a default list of fields to be used by a 'summary'
      * view of this object.
      *
-     * @var    string
+     * @var string
+     *
      * @config
      */
     private static $summary_fields = [
@@ -75,13 +79,14 @@ class BlogCategory extends DataObject
      * @var array
      */
     private static $field_labels = [
-        'BlogPosts.Count' => 'Blog Posts',
+        'BlogPosts.Count' => 'Posts',
     ];
 
     /**
      * Data administration interface in Silverstripe.
      *
      * @see    {@link ValidationResult}
+     *
      * @return FieldList Returns a TabSet for usage within the CMS
      */
     public function getCMSFields()
@@ -96,7 +101,7 @@ class BlogCategory extends DataObject
         );
 
         if ($this->exists()) {
-            /* Remove Add New button */
+            // Remove Add New button
             $config = $fields->dataFieldByName('BlogPosts')
                 ->getConfig();
 
@@ -115,7 +120,7 @@ class BlogCategory extends DataObject
      */
     public function link()
     {
-        return $this->Blog()->Link('category/' . $this->URLSegment . '/');
+        return $this->Blog()->Link('category/' . $this->URLSegment);
     }
 
     /**
@@ -125,7 +130,7 @@ class BlogCategory extends DataObject
      */
     public function getVisibleBlogPosts()
     {
-        return $this->Blogposts()
+        return $this->BlogPosts()
             ->where(
                 sprintf(
                     '"PublishDate" < \'%s\'',
@@ -138,6 +143,7 @@ class BlogCategory extends DataObject
      * Validate the current object.
      *
      * @see    {@link ValidationResult}
+     *
      * @return ValidationResult
      */
     public function validate()
@@ -145,7 +151,7 @@ class BlogCategory extends DataObject
         $valid       = parent::validate();
         $this->Title = trim($this->Title);
 
-        $filter = new URLSegmentFilter;
+        $filter = new URLSegmentFilter();
 
         $this->URLSegment = $filter->filter($this->Title);
 
@@ -169,17 +175,17 @@ class BlogCategory extends DataObject
      * @param Member $member  SilverStripe member
      * @param array  $context Array
      *
-     * @return boolean
+     * @return bool
      */
     public function canEdit($member = null, $context = [])
     {
         $extended = $this->extendedCan('canEdit', $member);
-        if ($extended !== null) {
+        if (null !== $extended) {
             return $extended;
         }
         if (Permission::check('CMS_ACCESS_Weblog', 'any', $member)) {
             return true;
-        };
+        }
 
         return parent::canEdit($member, $context);
     }
@@ -190,17 +196,17 @@ class BlogCategory extends DataObject
      * @param Member $member  SilverStripe member
      * @param array  $context Array
      *
-     * @return boolean
+     * @return bool
      */
     public function canView($member = null, $context = [])
     {
         $extended = $this->extendedCan('canView', $member);
-        if ($extended !== null) {
+        if (null !== $extended) {
             return $extended;
         }
         if (Permission::check('CMS_ACCESS_Weblog', 'any', $member)) {
             return true;
-        };
+        }
 
         return parent::canView($member, $context);
     }
@@ -211,17 +217,17 @@ class BlogCategory extends DataObject
      * @param Member $member  SilverStripe member
      * @param array  $context Array
      *
-     * @return boolean
+     * @return bool
      */
     public function canDelete($member = null, $context = [])
     {
         $extended = $this->extendedCan('canDelete', $member);
-        if ($extended !== null) {
+        if (null !== $extended) {
             return $extended;
         }
         if (Permission::check('CMS_ACCESS_Weblog', 'any', $member)) {
             return true;
-        };
+        }
 
         return parent::canDelete($member, $context);
     }

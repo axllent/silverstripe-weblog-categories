@@ -1,10 +1,11 @@
 <?php
+
 namespace Axllent\Weblog\Extensions;
 
 use Axllent\Weblog\Model\BlogCategory;
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\GridField\Gridfield;
+use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 
 class BlogCategoriesExt extends SiteTreeExtension
@@ -29,10 +30,10 @@ class BlogCategoriesExt extends SiteTreeExtension
     {
         $gridFieldConfig = GridFieldConfig_RecordEditor::create();
         $fields->addFieldToTab(
-            'Root.BlogCategories',
+            'Root.Categories',
             GridField::create(
                 'Categories',
-                'Blog Categories',
+                'Categories',
                 $this->owner->Categories(),
                 $gridFieldConfig
             )

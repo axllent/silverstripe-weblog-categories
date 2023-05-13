@@ -1,4 +1,5 @@
 <?php
+
 namespace Axllent\Weblog\Extensions;
 
 use Axllent\Weblog\Model\BlogCategory;
@@ -32,7 +33,7 @@ class BlogPostCategoriesExt extends SiteTreeExtension
                 'Root.Main',
                 ListboxField::create(
                     'Categories',
-                    'Post Categories',
+                    'Categories',
                     $p->Categories(),
                     $this->owner->Categories()
                 ),
