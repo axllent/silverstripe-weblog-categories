@@ -1,6 +1,6 @@
-# SilverStripe Weblog Categories
+# Silverstripe Weblog Categories
 
-A module extension to add categories to the [SilverStripe Weblog module](https://github.com/axllent/silverstripe-weblog).
+A module extension to add categories to the [Silverstripe Weblog module](https://github.com/axllent/silverstripe-weblog).
 
 It provides the necessary controller extensions for Weblog to browse by category.
 

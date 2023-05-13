@@ -1,4 +1,4 @@
-# Installing SilverStripe Weblog Categories Module
+# Installing Silverstripe Weblog Categories Module
 
 The weblog categories module can be installed via composer:
 
