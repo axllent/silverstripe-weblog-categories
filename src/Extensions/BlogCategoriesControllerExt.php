@@ -1,4 +1,5 @@
 <?php
+
 namespace Axllent\Weblog\Extensions;
 
 use SilverStripe\ORM\DataExtension;
@@ -22,6 +23,13 @@ class BlogCategoriesControllerExt extends DataExtension
     private static $url_handlers = [
         'category//$Category!' => 'displayCategory',
     ];
+
+    /**
+     * Template for overriding the page title with category information
+     *
+     * @var string
+     */
+    private static $title_template = 'Viewing category "[category]" | [page]';
 
     /**
      * Display category
@@ -49,8 +57,11 @@ class BlogCategoriesControllerExt extends DataExtension
 
         $orig_title = $this->owner->dataRecord->Title;
 
-        $this->owner->dataRecord->Title = 'Viewing category "' .
-        $category->Title . '" | ' . $orig_title;
+        $this->owner->dataRecord->Title = str_replace(
+            ['[category]', '[page]'],
+            [$category->Title, $orig_title],
+            $this->owner->config()->title_template
+        );
 
         $this->owner->blogPosts = $posts;
 
