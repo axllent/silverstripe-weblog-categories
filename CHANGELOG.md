@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.1.7]
+
+- Make title on category routes configurable
+
+
 ## [1.1.6]
 
 - Allow package to be installed in Silverstripe 5 projects
