@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.1.8]
+
+- Replace deprecated DataExtension with Extension
+
+
 ## [1.1.7]
 
 - Make title on category routes configurable
