@@ -2,9 +2,9 @@
 
 namespace Axllent\Weblog\Extensions;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 
-class BlogCategoriesControllerExt extends DataExtension
+class BlogCategoriesControllerExt extends Extension
 {
     /**
      * Allowed actions

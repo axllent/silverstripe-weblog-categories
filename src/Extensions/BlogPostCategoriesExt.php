@@ -3,11 +3,11 @@
 namespace Axllent\Weblog\Extensions;
 
 use Axllent\Weblog\Model\BlogCategory;
-use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ListboxField;
 
-class BlogPostCategoriesExt extends SiteTreeExtension
+class BlogPostCategoriesExt extends Extension
 {
     /**
      * Many many relationship

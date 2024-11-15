@@ -3,12 +3,12 @@
 namespace Axllent\Weblog\Extensions;
 
 use Axllent\Weblog\Model\BlogCategory;
-use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 
-class BlogCategoriesExt extends SiteTreeExtension
+class BlogCategoriesExt extends Extension
 {
     /**
      * Has many relationship
