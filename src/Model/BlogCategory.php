@@ -4,6 +4,7 @@ namespace Axllent\Weblog\Model;
 
 use SilverStripe\Core\Convert;
 use SilverStripe\Core\Validation\ValidationResult;
+use SilverStripe\Forms\ListboxField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\Security\Permission;
@@ -99,6 +100,18 @@ class BlogCategory extends DataObject
                 'URLSegment',
             ]
         );
+
+        if ($this->exists()) {
+            $fields->replaceField(
+                'BlogPosts',
+                ListboxField::create(
+                    'BlogPosts',
+                    'Blog posts',
+                    $this->Blog()->AllChildren(),
+                    $this->BlogPosts()
+                )
+            );
+        }
 
         return $fields;
     }
