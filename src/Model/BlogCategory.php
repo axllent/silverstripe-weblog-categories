@@ -3,7 +3,7 @@
 namespace Axllent\Weblog\Model;
 
 use SilverStripe\Core\Convert;
-use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Core\Validation\ValidationResult;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\Security\Permission;
@@ -100,16 +100,6 @@ class BlogCategory extends DataObject
             ]
         );
 
-        if ($this->exists()) {
-            // Remove Add New button
-            $config = $fields->dataFieldByName('BlogPosts')
-                ->getConfig();
-
-            $config->removeComponentsByType(
-                GridFieldAddNewButton::class
-            );
-        }
-
         return $fields;
     }
 
@@ -143,13 +133,11 @@ class BlogCategory extends DataObject
      * Validate the current object.
      *
      * @see    {@link ValidationResult}
-     *
-     * @return ValidationResult
      */
-    public function validate()
+    public function validate(): ValidationResult
     {
         $valid       = parent::validate();
-        $this->Title = trim($this->Title);
+        $this->Title = trim((string) $this->Title);
 
         $filter = new URLSegmentFilter();
 
@@ -161,7 +149,7 @@ class BlogCategory extends DataObject
             ->count();
 
         if (!$this->Title) {
-            $valid->addError('Enter a category name');
+            $valid->addError('Enter a category title');
         } elseif ($exists) {
             $valid->addError('A category named ' . $this->Title . ' already exists');
         }

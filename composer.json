@@ -12,14 +12,14 @@
     "authors": [
         {
             "name": "Ralph Slooten",
-            "homepage": "http://www.axllent.org/"
+            "homepage": "https://www.axllent.org/"
         }
     ],
     "support": {
         "issues": "https://github.com/axllent/silverstripe-weblog-categories/issues"
     },
     "require": {
-        "axllent/silverstripe-weblog": "^1.2"
+        "axllent/silverstripe-weblog": "^2.0"
     },
     "autoload": {
         "psr-4": {

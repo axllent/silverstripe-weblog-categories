@@ -27,6 +27,8 @@ class BlogPostCategoriesExt extends Extension
      */
     public function updateCMSFields(FieldList $fields)
     {
+        $fields->removeByName('Categories');
+
         $p = $this->owner->Parent();
         if ($p->exists()) {
             $fields->addFieldToTab(

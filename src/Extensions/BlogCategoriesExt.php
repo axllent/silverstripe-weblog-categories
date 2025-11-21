@@ -33,7 +33,7 @@ class BlogCategoriesExt extends Extension
             'Root.Categories',
             GridField::create(
                 'Categories',
-                'Categories',
+                'Blog categories',
                 $this->owner->Categories(),
                 $gridFieldConfig
             )
